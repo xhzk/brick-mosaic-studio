@@ -1,0 +1,17 @@
+{
+  "name": "乐高像素画 MOC 工坊",
+  "short_name": "像素画 MOC",
+  "description": "上传照片、选择积木配色，生成像素画拼搭图纸。",
+  "theme_color": "#eef5f0",
+  "background_color": "#f5f7f5",
+  "icons": [
+    {
+      "src": "assets/mark.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "scope": "./",
+  "start_url": "./",
+  "display": "standalone"
+}
