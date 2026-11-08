@@ -159,7 +159,7 @@ document.addEventListener("keydown", event => {
     if (event.key === "Escape" && step3.classList.contains("studio-large-editor")) setLargeEditor(false);
 });
 setLargeEditor(false);
-const quickDownload = studioAction(studioActionRow(colorPanels[4]), "下载彩色拼搭 PDF", () => {
+const quickDownload = studioAction(studioActionRow(colorPanels[4]), "生成彩色拼搭图纸", () => {
     const source = studioGet("download-instructions-button");
     if (!source.hidden && !source.disabled) source.click();
 });

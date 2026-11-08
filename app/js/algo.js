@@ -1055,7 +1055,7 @@ function generateInstructionTitlePage(pixelArray,width,plateWidth,availableStudH
     canvas.height=Math.max(W*1.65,W*0.3+availableStudHexList.length*scalingFactor*1.25);
     const ctx=canvas.getContext("2d");ctx.fillStyle="#fff";ctx.fillRect(0,0,canvas.width,canvas.height);
     drawStudCountForContext(getUsedPixelsStudMap(pixelArray),availableStudHexList,scalingFactor,ctx,W*0.14,W*0.17,pixelType);
-    drawLargeCover(ctx,canvas,finalImageCanvas,width,pixelArray.length/(4*width),plateWidth,scalingFactor,"彩色拼搭图纸");
+    drawLargeCover(ctx,canvas,finalImageCanvas,width,pixelArray.length/(4*width),plateWidth,scalingFactor,"拼搭图纸");
 }
 
 function generateInstructionPage(
