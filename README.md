@@ -6,7 +6,7 @@
 
 ## 本地启动
 
-用 VS Code 打开项目，在 `app/index.html` 上选择 **Open with Live Server**。如果已安装 Python，也可以在项目根目录运行：
+用 VS Code 打开项目，在 `app/index.html` 上选择 **Open with Live Server**（需要插件 Live Server）。如果已安装 Python，也可以在项目根目录运行：
 
 ```sh
 python -m http.server 8000 --directory app
