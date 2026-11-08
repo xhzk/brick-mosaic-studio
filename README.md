@@ -2,7 +2,7 @@
 
 把照片转换成可以用积木拼搭的像素画。你可以裁剪和调色，选择采购配色或现有套装，再按最终效果生成用料清单和分区拼搭 PDF。图片处理在浏览器中完成。
 
-感谢 Deb 开源 [Lego Art Remix](https://github.com/debkbanerji/lego-art-remix)，本项目在其基础上开发。
+感谢 Deb 开源，本项目在其基础上开发。
 
 ## 本地启动
 
