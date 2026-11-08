@@ -596,7 +596,7 @@ STUD_MAPS["pick_a_brick"] = {
 // Additional palette; all original palettes and sets remain available.
 STUD_MAPS["purchase_46"] = {
  name: "我们的可购买配色（46 色）", officialName: "我们的可购买配色（46 色）",
- descriptionHTML: "按提供的采购清单匹配；颜色名称附 LEGO 色号。",
+ descriptionHTML: "按提供的采购清单匹配；颜色名称附 色号。",
  sortedStuds: PURCHASE_COLORS.map(c=>c.hex),
  studMap: Object.fromEntries(PURCHASE_COLORS.map(c=>[c.hex,99999]))
 };
@@ -622,7 +622,7 @@ MERCHANT_COLORS.forEach(({ code, name, hex }) => {
 STUD_MAPS.merchant_10 = {
     name: "我们的可购买配色＋商家配色（56 色）",
     officialName: "我们的可购买配色＋商家配色（56 色）",
-    descriptionHTML: "包含原有 46 色与商家新增的 10 色。用料清单和图纸标注对应的 LEGO 或商家 S 色号。",
+    descriptionHTML: "包含原有 46 色与商家新增的 10 色。用料清单和图纸标注对应的数字色号或商家 S 色号。",
     sortedStuds: [...STUD_MAPS.purchase_46.sortedStuds, ...MERCHANT_COLOR_HEXES],
     studMap: {
         ...STUD_MAPS.purchase_46.studMap,

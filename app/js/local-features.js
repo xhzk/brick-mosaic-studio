@@ -14,8 +14,8 @@ const UI_ZH = {
 "Adjust Depth Map":"调整深度图","Edit Depth":"编辑深度","Clear Overrides":"清除手动修改","Expand Picture":"放大预览","Collapse Picture":"收起预览",
 "Correct for available pieces, if piece counts are limited":"按实际库存校正最终拼图","Pieces Used":"用料清单","Pieces Used in Final Image":"最终图像用料","Dimensions":"尺寸","Number Used":"用量","Pieces Missing From Step 3":"与第三步相比缺少的颗粒","Number Missing":"缺少数量",
 "Export Piece List":"导出采购清单","Copy Bricklink XML to Clipboard":"复制 BrickLink 采购 XML","Frame elements are not exported":"不包含外框零件","Bricklink Upload Page":"打开 BrickLink 导入页","U.S. Pick a Brick Page":"打开 LEGO 选购页",
-"Instructions":"拼搭图纸","Generate Instructions PDF":"生成拼搭 PDF","Generate Color Instructions PDF":"生成彩色拼搭 PDF","Generate Depth Instructions PDF":"生成深度拼搭 PDF","High quality pdf":"高质量 PDF","Longer instructions may be split into multiple files":"页数较多时会拆分为多个 PDF 文件",
-"Color names are Bricklink colors":"颜色附中文名称与 LEGO 色号","3D Preview":"立体预览","Tips":"使用提示","Preview effect intensity":"立体效果强度","Depth Plates":"深度垫片","Available Plates:":"可用垫片：",
+"Instructions":"拼搭图纸","Generate Instructions PDF":"生成拼搭图纸","Generate Color Instructions PDF":"生成彩色拼搭图纸","Generate Depth Instructions PDF":"生成深度拼搭 PDF","High quality pdf":"高质量 PDF","Longer instructions may be split into multiple files":"页数较多时会拆分为多个 PDF 文件",
+"Color names are Bricklink colors":"颜色附中文名称与 色号","3D Preview":"立体预览","Tips":"使用提示","Preview effect intensity":"立体效果强度","Depth Plates":"深度垫片","Available Plates:":"可用垫片：",
 "Get Started":"开始制作","Input Pieces:":"可用配色：","Input set":"选择配色","Select Input Image":"上传图片","Or":"或","See an Example":"查看示例",
 "1x1 Round Tile":"1×1 圆形光面颗粒","1x1 Round Plate":"1×1 圆形凸点颗粒","1x1 Square Tile":"1×1 方形光面颗粒","1x1 Square Plate":"1×1 方形薄板","1x1 Square Brick":"1×1 方形砖","Variable Tile":"可变尺寸光面颗粒","Variable Plate":"可变尺寸薄板","Variable Brick":"可变尺寸砖",
 "Max Pooling":"最大值缩放","Min Pooling":"最小值缩放","Average Pooling":"平均值缩放","Dual Min Max Pooling":"明暗自适应缩放",
@@ -70,7 +70,7 @@ Object.assign(UI_ZH, {
  "● Click a pixel to increase its height":"● 点击颗粒增加高度。","● Click a pixel to decrease its height":"● 点击颗粒降低高度。",
  "'Quantization'":"“颜色量化算法”","'Pixel Piece'":"“颗粒形状”","'Infinite Piece Counts'":"“不限颗粒数量”","'Available Colors'":"“可用颜色与数量”","'Euclidean RGB'":"“RGB 欧氏距离”"
 });
-PURCHASE_COLORS.forEach(c=>{UI_ZH[c.name]=`${c.zh} · LEGO ${c.legoId}`;});
+PURCHASE_COLORS.forEach(c=>{UI_ZH[c.name]=`${c.zh} · ${c.legoId}`;});
 translateUI();
 let translationPending=false;
 new MutationObserver(()=>{if(!translationPending){translationPending=true;requestAnimationFrame(()=>{translationPending=false;translateUI();});}}).observe(document.body,{childList:true,subtree:true,characterData:true});
@@ -118,6 +118,6 @@ document.getElementById('apply-depth-preset').onclick=()=>{
  if(typeof inputImageCropper!=='undefined'&&inputImageCropper)runStep1();
 };
 const info=document.createElement('details');info.className='card card-body my-2';
-info.innerHTML='<summary>可购买配色 · 46 色</summary><small>采购范围以你提供的清单为准。LEGO 色号与 BrickLink 编号不同，XML 仍使用 BrickLink 编号。金属与珠光色的屏幕预览仅为近似色。</small><div id="purchase-swatches" class="mt-2"></div>';
+info.innerHTML='<summary>可购买配色 · 46 色</summary><small>采购范围以你提供的清单为准。色号与 BrickLink 编号不同，XML 仍使用 BrickLink 编号。金属与珠光色的屏幕预览仅为近似色。</small><div id="purchase-swatches" class="mt-2"></div>';
 document.getElementById('image-input-card').append(info);
-PURCHASE_COLORS.forEach(color=>{const item=document.createElement('span');item.style='display:inline-flex;align-items:center;margin:4px 12px 4px 0;font-size:12px';const swatch=document.createElement('span');swatch.style=`display:inline-block;width:18px;height:18px;border:1px solid #aaa;margin-right:4px;background:${color.hex}`;item.append(swatch,document.createTextNode(`${color.zh} ${color.legoId}`));item.title=`LEGO ${color.legoId} ${color.legoName} / BrickLink ${color.id} ${color.name}`;document.getElementById('purchase-swatches').append(item);});
+PURCHASE_COLORS.forEach(color=>{const item=document.createElement('span');item.style='display:inline-flex;align-items:center;margin:4px 12px 4px 0;font-size:12px';const swatch=document.createElement('span');swatch.style=`display:inline-block;width:18px;height:18px;border:1px solid #aaa;margin-right:4px;background:${color.hex}`;item.append(swatch,document.createTextNode(`${color.zh} ${color.legoId}`));item.title=`色号 ${color.legoId} ${color.legoName} / BrickLink ${color.id} ${color.name}`;document.getElementById('purchase-swatches').append(item);});

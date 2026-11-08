@@ -474,12 +474,12 @@ const EXTRA_COLOR_NAMES_ZH = {
     "Medium Violet": "中紫罗兰色", "Light Violet": "浅紫罗兰色", "Purple": "紫色",
     "Light Purple": "浅紫色", "Clikits Lavender": "Clikits 薰衣草紫", "Sand Purple": "沙紫色",
     "Medium Dark Pink": "中深粉色", "Pink": "粉色", "Light Pink": "浅粉色",
-    "Neon Yellow": "霓虹黄 · LEGO 368", "Pearl Gold": "珠光金 · LEGO 297", "Medium Tan": "中棕褐色",
+    "Neon Yellow": "霓虹黄 · 368", "Pearl Gold": "珠光金 · 297", "Medium Tan": "中棕褐色",
 };
 
 const HEX_TO_COLOR_NAME = {};
 ALL_BRICKLINK_SOLID_COLORS.forEach((color) => {
-    HEX_TO_COLOR_NAME[color.hex] = color.zh ? `${color.zh} · LEGO ${color.legoId}` : (EXTRA_COLOR_NAMES_ZH[color.name] || color.name);
+    HEX_TO_COLOR_NAME[color.hex] = color.zh ? `${color.zh} · ${color.legoId}` : (EXTRA_COLOR_NAMES_ZH[color.name] || color.name);
 });
 
 const COLOR_NAME_TO_ID = {};
