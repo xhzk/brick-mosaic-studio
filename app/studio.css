@@ -406,6 +406,30 @@ input[type="checkbox"] { accent-color: #286247; }
 .studio-live summary { cursor: pointer; font-size: .9rem; font-weight: 700; }
 .studio-live canvas { display: block; width: 100%; max-height: 45vh; object-fit: contain; margin-top: 8px; }
 .studio-live small { display: block; margin-top: 4px; }
+.studio-editing #universal-loading-progress,
+.studio-editing #universal-loading-progress-complement { display: none; }
+.studio-preview-loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 6px;
+    font-size: .72rem;
+    font-weight: 500;
+}
+.studio-preview-loading[hidden] { display: none; }
+.studio-preview-loading::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 2px solid #b5c9bb;
+    border-top-color: #286247;
+    border-radius: 50%;
+    animation: studio-preview-spin .7s linear infinite;
+}
+@keyframes studio-preview-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+    .studio-preview-loading::before { animation: none; }
+}
 .studio-error-indicator { display: inline-block; width: fit-content; max-width: 100%; cursor: help; }
 .studio-live .studio-error-indicator { margin-inline: auto; }
 

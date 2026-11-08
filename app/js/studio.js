@@ -463,6 +463,20 @@ livePreview.innerHTML = '<summary>最终效果 · 实时预览</summary><canvas 
 workspace.append(studioSteps, livePreview);
 const previewCanvas = livePreview.querySelector("canvas");
 const previewStatus = livePreview.querySelector("small");
+const previewLoading = document.createElement("span");
+previewLoading.className = "studio-preview-loading";
+previewLoading.textContent = "正在更新…";
+previewLoading.setAttribute("role", "status");
+livePreview.querySelector("summary").append(previewLoading);
+const processingProgress = studioGet("universal-loading-progress");
+const syncPreviewLoading = () => {
+    const busy = !studioSteps.hidden && !processingProgress.hidden;
+    previewLoading.hidden = !busy;
+    previewCanvas.setAttribute("aria-busy", String(busy));
+};
+new MutationObserver(syncPreviewLoading).observe(processingProgress, {
+    attributes: true, attributeFilter: ["hidden"],
+});
 const previewError = document.createElement("small");
 const finalError = studioGet("step-4-quantization-error").parentElement;
 previewError.title = finalError.getAttribute("data-original-title") || finalError.title;
@@ -495,6 +509,8 @@ const syncStudio = () => {
     intro.hidden = !studioSteps.hidden;
     navigation.hidden = studioSteps.hidden;
     workspace.hidden = studioSteps.hidden;
+    document.body.classList.toggle("studio-editing", !studioSteps.hidden);
+    syncPreviewLoading();
 };
 new MutationObserver(syncStudio).observe(studioSteps, { attributes: true, attributeFilter: ["hidden"] });
 syncStudio();
