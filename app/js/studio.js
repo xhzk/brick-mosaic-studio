@@ -407,7 +407,7 @@ const resetColorButton = studioAction(presetHeader, "重置调色", () => {
     colorPresetSelect.value = "original";
     colorPresetApply.click();
     for (const button of colorPresetChoices.children) button.setAttribute("aria-pressed", "false");
-    studioGet("preset-feedback").textContent = "已重置调色";
+    studioGet("preset-feedback").textContent = "";
 });
 resetColorButton.classList.remove("btn-primary");
 resetColorButton.classList.add("btn-outline-secondary", "studio-reset-color");
